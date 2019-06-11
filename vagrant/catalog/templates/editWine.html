@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h1 class="mb-3">Edit Wine</h1>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "POST">
+				<div class="form-group mb-3">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{wine.name }}">
+					<div class="mb-3"></div>
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">{{wine.description}}</textarea>
+					<div class="mb-3"></div>
+					<label for="price">Price:</label>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+								<span class="input-group-text">$</span>
+							</div>
+						<input type ="text" maxlength="10" class="form-control" name="price" value="{{wine.price}}">
+					</div>
+					<button type="submit" class="btn btn-outline-success" id="submit" type="submit">Save</button>
+				</div>
+            </form>
+            <a href="{{url_for('showWines', region_id=region_id, wine_id=wine_id)}}">
+                <button class="btn btn-outline-info">Cancel</button>
+             </a>
+		</div>
+	</div>
+{% endblock %}

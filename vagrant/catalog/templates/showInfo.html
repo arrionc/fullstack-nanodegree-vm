@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h3>{{wine.name}}</h3>
+
+<p class="lead">{{wine.description}}</p>
+<p>{{wine.price}}</p>
+
+<a href = "{{url_for('showWines', region_id=region.id, wine_id=wine.id)}}">Go Back to Wines</a>
+
+{% endblock %}

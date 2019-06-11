@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1 class="mb-3">New Region</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="{{url_for('newRegion')}}" method = "POST">
+				<div class="form-group">
+				<label for="name">Name:</label>
+				<input type ="text" class="form-control" maxlength="100" name="name">
+				<div class="mb-3"></div>
+				<button type="submit" class="btn btn-outline-info" id="submit" type="submit">Create</button>
+			</form>
+				</div>
+            <a href = "{{url_for('showAllRegions')}}">
+                    <button class="btn btn-outline-primary">Cancel</button>
+			</a>
+		</div>			
+	</div>
+{% endblock %}

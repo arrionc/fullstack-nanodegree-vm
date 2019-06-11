@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<h2 class="mb-3"> Are you sure you want to delete {{region.name}}? </h2>
+    <div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+            <form action="{{url_for('deleteRegion', region_id=region.id)}}" method="POST">
+                <div class="form-group">
+	            <button type="submit" class="btn btn-outline-danger" id="submit" type="submit">Delete</button>
+                </div>
+                </form>
+	    <a href = "{{url_for('showAllRegions')}}">
+		    <button class="btn btn-outline-primary">Cancel</button>
+        </a>
+        </div>
+    </div>
+
+
+{% endblock %}

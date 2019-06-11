@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row">
+        <div class="col-sm-11">
+            <h1>{{ region.name }}</h1>
+        </div>
+        <div class="col-sm-1">
+                <figure>
+                    <img src="{{ url_for('static', filename='blank-user.png')}}" class="figure-img img-fluid rounded" height="70" width="70">
+                    <figcaption class="figure-caption">User</figcaption>
+                </figure>
+        </div>
+    </div>	
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+		{% for message in messages %}
+		<div class="alert alert-success">
+			<strong> {{ message }} </strong>
+		</div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+         
+<div class="mb-3">
+    <a class="btn btn-outline-primary" href="{{url_for('showAllRegions')}}">Back to Regions</a>
+    <a class="btn btn-outline-success" href="{{url_for('newWine', region_id=region.id)}}">Add Wine</a>
+</div>
+           
+{% if wines != [] %}
+<div class="mb-3">
+    <h2 class="display-4 text-center">Wines</h2>
+</div>
+    {% for wine in wines %}
+        <div class="card">
+            <div class="card-body">
+	    <h3 class="card-title">{{wine.name}}</h3>
+    		<a href="{{url_for('showInfo', region_id=region.id, wine_id=wine.id)}}">Show Info</a>|
+            <a href="{{url_for('editWine', region_id=region.id, wine_id=wine.id)}}">Edit</a>| 
+            <a href="{{url_for('deleteWine', region_id=region.id, wine_id=wine.id)}}">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}
