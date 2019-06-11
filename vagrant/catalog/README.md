@@ -4,7 +4,7 @@ This web app was created as part of the Fullstack Web Developer Nanodegree from 
 The app lets you navigate through a number of categories providing a list of items for each one.
 It will also provide a user registration and authentication system using your google credentials. Registered users will have the ability to post, edit and delete their own items 
 
-The app also implements a JSON endpoints that serves the same information as displayed in the HTML endpoints for an arbitrary category or item in the catalog.
+The app also implements a JSON endpoints that serve the same information as displayed in the HTML endpoints for an arbitrary category or item in the catalog.
 
 ## Requirements:
 
